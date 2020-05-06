@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Join Meeting URL API (m.php?AT=JM)</title>
+    <script language="javascript">
+      function submitForm(){
+      	if(document.getElementById('sname').value != null){
+      		var sitename = document.getElementById('sname').value;
+          var url = "https://"+sitename+".webex.com/"+sitename+"/m.php";
+      		document.form.action = url;
+      		document.form.submit();
+      	}
+      	else{
+      		alert("You must supply a sitename");
+      		return false;
+      	}
+      }
+    </script>
+  </head>
+  <body>
+      <h2>Join Meeting URL API (m.php?AT=JM)</h2>
+      <label for="sname">Sitename:</label>
+      <input type="text" id="sname" name="sitename" value="go">.webex.com
+      <br />
+      <form name="form" action="" method="POST" >
+        <input type="hidden" name="AT" value="JM"/>
+        <label for="MK">Meeting Number:</label>
+        <input type="text" id="MK" name="MK" value="158854983" />
+        <br />
+        <label for="PW">Meeting Password:</label>
+        <input type="text" id="PW" name="PW" value="wombat" />
+        <br />
+        <label for="AE">Email:</label>
+        <input type="text" id="AE" name="AE" value="user@example.com" />
+        <br />
+        <label for="AN">Name:</label>
+        <input type="text" id="AN" name="AN" value="User" />
+        <br />
+        <label for="BU">Back URL:</label>
+        <input type="text" id="BU" name="BU" value="http://localhost" />
+        <input type="hidden" name="servicename" value="MC"/>
+        <br /><br />
+        <input type="button" value="Join" onclick="submitForm()">
+      </form>
+  </body>
+</html>
